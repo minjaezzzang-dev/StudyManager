@@ -1,0 +1,13 @@
+# 개발용 - Hot Reload
+FROM node:20-alpine
+
+WORKDIR /app
+
+# 개발 의존성 포함 설치
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+# 소스 마운트용
+EXPOSE 10000 9229
+
+CMD ["npm", "run", "dev"]

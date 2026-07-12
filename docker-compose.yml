@@ -1,0 +1,82 @@
+# =============================================================
+# EasyKR — 로컬 개발용 Docker Compose
+# =============================================================
+# 실행: docker-compose up -d
+# 중지: docker-compose down
+# 로그: docker-compose logs -f
+# =============================================================
+
+version: '3.8'
+
+services:
+  # ──────────────────────────────────────────────
+  # Backend API (Express + Supabase)
+  # ──────────────────────────────────────────────
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    container_name: easykr-backend
+    ports:
+      - "10000:10000"
+    environment:
+      - NODE_ENV=development
+      - PORT=10000
+      - SERVER_URL=http://localhost:10000
+      - DEBUG=false
+      # Supabase (실제 값으로 변경 필요)
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      # OpenAI (선택)
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    env_file:
+      - .env.local
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:10000/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ──────────────────────────────────────────────
+  # Frontend (Next.js)
+  # ──────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:10000
+    container_name: easykr-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:10000
+      - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    env_file:
+      - .env.local
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # ──────────────────────────────────────────────
+  # 개발용: Hot Reload (선택)
+  # ──────────────────────────────────────────────
+  # 개발 시에는 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+  # 로 실행하면 소스 변경 시 자동 리로드됨
+
+networks:
+  default:
+    name: easykr-network
+

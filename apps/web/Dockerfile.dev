@@ -1,0 +1,12 @@
+# 개발용 - Hot Reload (Next.js Turbopack)
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+EXPOSE 3000
+
+# Turbopack 개발 서버
+CMD ["npm", "run", "dev"]

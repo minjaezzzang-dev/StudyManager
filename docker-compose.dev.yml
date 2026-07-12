@@ -1,0 +1,37 @@
+# =============================================================
+# EasyKR — 개발용 Hot Reload Override
+# =============================================================
+# 실행: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+# =============================================================
+
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./apps/backend:/app
+      - /app/node_modules
+    command: npm run dev
+    environment:
+      - DEBUG=true
+    ports:
+      - "10000:10000"
+      - "9229:9229"  # Node inspector
+
+  frontend:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    command: npm run dev
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:10000
+    ports:
+      - "3000:3000"
+
