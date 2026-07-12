@@ -39,14 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# turbo
-.turbo
-
-# IDE
-.vscode/*
-!.vscode/extensions.json
-.idea
-
-# OS
-Thumbs.db

@@ -1,0 +1,57 @@
+# =============================================================
+# EasyKR — Render.com 배포 설정
+# =============================================================
+# 이 파일은 Render 대시보드에서 "Blueprint"로 배포할 때 사용됩니다.
+# 방법: Render Dashboard → New → Blueprint → GitHub repo 선택 → 자동 감지
+# =============================================================
+
+services:
+  # ──────────────────────────────────────────────
+  # Backend API (Express + Supabase)
+  # ──────────────────────────────────────────────
+  - type: web
+    name: easykr-backend
+    runtime: node
+    plan: free
+    region: singapore   # 한국 사용자 기준 가장 가까운 리전
+    rootDir: apps/backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /ping
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.0.0
+      - key: SUPABASE_URL
+        sync: false       # Render 대시보드에서 수동 입력
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: SERVER_URL
+        value: https://easykr-backend.onrender.com
+      - key: PORT
+        value: 10000
+
+  # ──────────────────────────────────────────────
+  # Frontend (Next.js)
+  # ──────────────────────────────────────────────
+  - type: web
+    name: easykr-frontend
+    runtime: node
+    plan: free
+    region: singapore
+    rootDir: apps/web
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.0.0
+      - key: NEXT_PUBLIC_API_URL
+        value: https://easykr-backend.onrender.com
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false

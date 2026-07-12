@@ -14,9 +14,9 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@dahamkee/domain": ["packages/domain/src"],
-      "@dahamkee/shared": ["packages/shared/src"]
+      "@dahamkee/shared": ["../shared/src"]
     }
   },
-  "exclude": ["node_modules", "dist", "build", ".turbo"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
