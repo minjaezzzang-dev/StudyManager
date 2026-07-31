@@ -110,19 +110,19 @@ export const googleVisionSchema = z.object({
 // OAuth Providers
 // ────────────────────────-------------------
 export const oauthSchema = z.object({
-  // Google OAuth 2.0
-  GOOGLE_CLIENT_ID: z.string().min(10, 'GOOGLE_CLIENT_ID is required'),
-  GOOGLE_CLIENT_SECRET: z.string().min(10, 'GOOGLE_CLIENT_SECRET is required'),
-  GOOGLE_REDIRECT_URI: z.string().url('GOOGLE_REDIRECT_URI must be a valid URL'),
+  // Google OAuth 2.0 — optional when social login not configured
+  GOOGLE_CLIENT_ID: z.string().default('oauth-disabled-google-client-id'),
+  GOOGLE_CLIENT_SECRET: z.string().default('oauth-disabled-google-secret'),
+  GOOGLE_REDIRECT_URI: z.string().url().default('http://127.0.0.1:10000/api/auth/oauth/google/callback'),
   GOOGLE_IOS_CLIENT_ID: z.string().optional(),
   GOOGLE_ANDROID_CLIENT_ID: z.string().optional(),
 
   // Apple Sign In
-  APPLE_CLIENT_ID: z.string().min(5, 'APPLE_CLIENT_ID is required'),
+  APPLE_CLIENT_ID: z.string().default('com.dahamkee.easykr'),
   APPLE_TEAM_ID: z.string().optional(),
   APPLE_KEY_ID: z.string().optional(),
   APPLE_PRIVATE_KEY: z.string().optional(),
-  APPLE_REDIRECT_URI: z.string().url('APPLE_REDIRECT_URI must be a valid URL'),
+  APPLE_REDIRECT_URI: z.string().url().default('http://127.0.0.1:10000/api/auth/oauth/apple/callback'),
 
   // X (Twitter) OAuth 2.0
   X_CLIENT_ID: z.string().optional(),
@@ -203,10 +203,10 @@ export const backendSchema = z.object({
 // Frontend (Next.js)
 // ────────-------------------
 export const frontendSchema = z.object({
-  NEXT_PUBLIC_APP_URL: z.string().url('NEXT_PUBLIC_APP_URL must be a valid URL'),
-  NEXT_PUBLIC_API_URL: z.string().url('NEXT_PUBLIC_API_URL must be a valid URL'),
-  NEXT_PUBLIC_SUPABASE_URL: z.string().url('NEXT_PUBLIC_SUPABASE_URL must be a valid URL'),
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(10, 'NEXT_PUBLIC_SUPABASE_ANON_KEY is required'),
+  NEXT_PUBLIC_APP_URL: z.string().url().default('http://127.0.0.1:3000'),
+  NEXT_PUBLIC_API_URL: z.string().url().default('http://127.0.0.1:10000'),
+  NEXT_PUBLIC_SUPABASE_URL: z.string().url().default('http://127.0.0.1:54321'),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().default('supabase-anon-key-placeholder'),
   NEXT_PUBLIC_GOOGLE_CLIENT_ID: z.string().optional(),
   NEXT_PUBLIC_APPLE_CLIENT_ID: z.string().optional(),
 
@@ -223,9 +223,9 @@ export const frontendSchema = z.object({
 // Mobile (Expo/React Native)
 // ────────-------------------
 export const mobileSchema = z.object({
-  EXPO_PUBLIC_API_URL: z.string().url('EXPO_PUBLIC_API_URL must be a valid URL'),
-  EXPO_PUBLIC_SUPABASE_URL: z.string().url('EXPO_PUBLIC_SUPABASE_URL must be a valid URL'),
-  EXPO_PUBLIC_SUPABASE_ANON_KEY: z.string().min(10, 'EXPO_PUBLIC_SUPABASE_ANON_KEY is required'),
+  EXPO_PUBLIC_API_URL: z.string().url().default('http://127.0.0.1:10000'),
+  EXPO_PUBLIC_SUPABASE_URL: z.string().url().default('http://127.0.0.1:54321'),
+  EXPO_PUBLIC_SUPABASE_ANON_KEY: z.string().default('supabase-anon-key-placeholder'),
   EXPO_PUBLIC_GOOGLE_CLIENT_ID: z.string().optional(),
   EXPO_PUBLIC_APPLE_CLIENT_ID: z.string().optional(),
   EXPO_PUBLIC_KAKAO_CLIENT_ID: z.string().optional(),
