@@ -355,7 +355,10 @@ export type EnvConfig = z.infer<typeof envSchema>;
 // Validation Helper
 // ────────-------------------
 export function validateEnv(config: Record<string, string | undefined>): EnvConfig {
-  const result = envSchema.safeParse(config);
+  const normalized = Object.fromEntries(
+    Object.entries(config).map(([k, v]) => [k, v === '' ? undefined : v])
+  );
+  const result = envSchema.safeParse(normalized);
   
   if (!result.success) {
     const errors = result.error.errors.map(e => 
