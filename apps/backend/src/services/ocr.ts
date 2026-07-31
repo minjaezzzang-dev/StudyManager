@@ -1,5 +1,3 @@
-import { createWorker, type Worker } from 'tesseract.js';
-
 const LANG_MAP: Record<string, string> = {
   ko: 'kor',
   en: 'eng',
@@ -19,7 +17,9 @@ const TESSERACT_TO_APP: Record<string, string> = Object.fromEntries(
   Object.entries(LANG_MAP).map(([app, tess]) => [tess, app])
 );
 
-let worker: Worker | null = null;
+type OcrWorker = Awaited<ReturnType<typeof import('tesseract.js')['createWorker']>>;
+
+let worker: OcrWorker | null = null;
 let loadedLangs = '';
 let testWorkerLocked = false;
 
@@ -31,7 +31,8 @@ function toTesseractLangs(hints?: string[]): string {
   return [...new Set(codes)].join('+') || 'eng';
 }
 
-async function getWorker(langs: string): Promise<Worker> {
+async function getWorker(langs: string): Promise<OcrWorker> {
+  const { createWorker } = await import('tesseract.js');
   if (testWorkerLocked && worker) {
     return worker;
   }
