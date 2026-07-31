@@ -1,0 +1,9 @@
+Okay, let's see. The user wants me to extract all the text from the document page. First, I need to look at the image provided. The image is a light orange or peach-colored background with some faint dashed lines forming a grid or diamond pattern. There's also a very faint, almost invisible text in the background, but it's really hard to make out.
+
+Wait, the problem says to extract all text. But looking at the image, there's no clear text visible. The main thing is the color and the dashed lines. Maybe there's some text that's too faint to see? Let me check again. The image has a light background, maybe a page from a book or a document, but the text is extremely faded. The dashed lines are white and form a grid. There's a small dark spot near the bottom center, but that's probably a speck, not text.
+
+Hmm, the user instructions say to extract all text while preserving the original reading order. If there's no visible text, then the extracted text should be empty. But maybe I'm missing something. Let me zoom in mentally. The background has a very light, almost transparent layer with some text. Wait, maybe it's a watermark or a faded print. Let me try to see if there's any discernible characters.
+
+Looking closely, there's a faint rectangular area in the upper part with some lines that might be text. But it's so light that it's almost impossible to read. The dashed lines are more prominent. Since the text is not legible, maybe there's no actual text to extract. The guidelines say if the page is blank or has no text, state what's there. But the user says "extract all text", so if there's no text, the answer is nothing.
+
+Wait, the image might be a blank page with some design elements. The dashed lines are part of the design, not text. The faint background might be a watermark, but it's not readable. So, there's no actual text content here. Therefore, the extracted text should be an empty string.

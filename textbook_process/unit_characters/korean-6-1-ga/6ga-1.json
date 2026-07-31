@@ -1,0 +1,95 @@
+{
+  "stories": [
+    {
+      "title": "의병장 윤희순",
+      "characters": [
+        {
+          "name": "윤희순",
+          "role": "주인공",
+          "description": "숯가마를 일궈 의병을 돕는다.",
+          "avatar_emoji": "⚔️",
+          "context": "숯을 구워 의병에 식량을 바친다. 노래로 마을 여성을 일으킨다."
+        },
+        {
+          "name": "담비",
+          "role": "의병",
+          "description": "노래로 의병 운동을 전한다.",
+          "avatar_emoji": "🎵",
+          "context": "안사랑의 방황가를 가르친다. 윤희순과 함께 나선다."
+        }
+      ]
+    },
+    {
+      "title": "책 짖는 소년",
+      "aliases": ["퍽 잦는 소년", "책깃는 소년"],
+      "characters": [
+        {
+          "name": "장호",
+          "role": "주인공",
+          "description": "각수가 되어 부자가 되고 싶어 한다.",
+          "avatar_emoji": "📖",
+          "context": "각수 어른에게 글자를 배운다. 서포를 차리고 싶어 한다."
+        },
+        {
+          "name": "각수 어른",
+          "role": "스승",
+          "description": "서포 작업장의 각수.",
+          "avatar_emoji": "✒️",
+          "context": "장호에게 기회를 준다."
+        },
+        {
+          "name": "봉숭아",
+          "role": "친구",
+          "description": "장호가 각수가 되겠다고 말한 계기.",
+          "avatar_emoji": "🌸",
+          "context": "각수 일하는 모습을 보았다."
+        }
+      ]
+    },
+    {
+      "title": "다이빙대 위에서",
+      "characters": [
+        {
+          "name": "나무",
+          "role": "주인공",
+          "description": "수영부 선수.",
+          "avatar_emoji": "🏊",
+          "context": "언니 바람이가 수영을 그만둔 이유를 알고 싶어 한다."
+        },
+        {
+          "name": "바람이",
+          "role": "언니",
+          "description": "다이빙 선수였으나 그만두었다.",
+          "avatar_emoji": "🤸",
+          "context": "자전거를 타며 동생과 대화한다."
+        }
+      ]
+    },
+    {
+      "title": "그랬다면 어땠을까",
+      "characters": [
+        {
+          "name": "다람쥐",
+          "role": "주인공",
+          "description": "다른 동물의 삶을 상상하지만 결국 자신을 받아들인다.",
+          "avatar_emoji": "🐿️",
+          "context": "비버, 사슴, 고슴도치가 되고 싶어 했지만 다람쥐로 남기로 한다."
+        },
+        {
+          "name": "비버",
+          "role": "동물",
+          "description": "댐을 짓는 동물.",
+          "avatar_emoji": "🦫",
+          "context": "다람쥐가 잠깐 부러워했다."
+        },
+        {
+          "name": "사슴",
+          "role": "동물",
+          "description": "우아한 뿔을 가진 동물.",
+          "avatar_emoji": "🦌",
+          "context": "다람쥐가 동경했다."
+        }
+      ]
+    }
+  ]
+}

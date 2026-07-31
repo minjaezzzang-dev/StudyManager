@@ -1,0 +1,30 @@
+{
+  "stories": [
+    {
+      "title": "지혜로운 이방의 아들",
+      "characters": [
+        {
+          "name": "이방",
+          "role": "아버지",
+          "description": "사또의 무리한 시키를 걱정하는 하인.",
+          "avatar_emoji": "🧑",
+          "context": "겨울에 산행기를 구하라는 말에 걱정한다."
+        },
+        {
+          "name": "이방의 아들",
+          "role": "주인공",
+          "description": "지혜로 사또의 거짓 명령을 막는다.",
+          "avatar_emoji": "🧒",
+          "context": "겨울에 뱀도 산딸기도 없다는 논리로 사또를 이긴다."
+        },
+        {
+          "name": "사또",
+          "role": "사또",
+          "description": "이방을 괴롭히려다 아들에게 당한다.",
+          "avatar_emoji": "👨‍⚖️",
+          "context": "무리한 명령을 내린다."
+        }
+      ]
+    }
+  ]
+}

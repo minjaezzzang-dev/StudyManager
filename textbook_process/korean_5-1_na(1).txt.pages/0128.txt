@@ -1,0 +1,17 @@
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<|ref|>image<|/ref|><|det|>[[180, 666, 750, 925]]<|/det|>

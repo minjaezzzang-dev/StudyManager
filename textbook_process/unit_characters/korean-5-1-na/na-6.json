@@ -1,0 +1,138 @@
+{
+  "stories": [
+    {
+      "title": "사랑이 뭔데요?",
+      "summary": "도시의 연구원 김수철이 어머니를 만나 사랑을 다시 깨닫는 이야기",
+      "characters": [
+        {
+          "name": "김수철",
+          "role": "주인공",
+          "description": "로또 공학 연구소 연구원.",
+          "avatar_emoji": "👨‍🔬",
+          "context": "도시에서 기계처럼 산다. 어머니를 끌어안으며 사랑을 느낀다. 로봇과 사람 사이를 고민한다."
+        },
+        {
+          "name": "어머니",
+          "role": "어머니",
+          "description": "시골에 사는 어머니.",
+          "avatar_emoji": "👵",
+          "context": "아들이 사랑을 잊은 것을 걱정해 도시로 온다. 로봇을 끌어안으며 사랑을 보여 준다."
+        },
+        {
+          "name": "아버지",
+          "role": "아버지",
+          "description": "시골 들판에서 어머니와 아들을 걱정한다.",
+          "avatar_emoji": "👴",
+          "context": "들판을 걸으며 아들 소식을 걱정한다."
+        },
+        {
+          "name": "로봇",
+          "role": "로봇",
+          "description": "휴머노이드. 어머니를 끌어안으며 사랑을 배운다.",
+          "avatar_emoji": "🤖",
+          "context": "사람의 감정을 읽는다. 어머니와 끌어안은 뒤 사랑에 빠졌다고 외친다."
+        }
+      ]
+    },
+    {
+      "title": "알에서 태어나다",
+      "summary": "주몽 신화",
+      "characters": [
+        {
+          "name": "유화",
+          "role": "어머니",
+          "description": "하백의 딸.",
+          "avatar_emoji": "👸",
+          "context": "알에서 주몽을 낳는다. 아들을 해치려는 무리를 알려 준다."
+        },
+        {
+          "name": "주몽",
+          "role": "주인공",
+          "description": "알에서 태어난 영웅.",
+          "avatar_emoji": "🏹",
+          "context": "활쏘기와 말타기에 뛰어나다. 어머니 말을 듣고 궁을 빠져나간다."
+        },
+        {
+          "name": "해모수",
+          "role": "아버지",
+          "description": "하늘의 아들.",
+          "avatar_emoji": "☀️",
+          "context": "유화와 혼인하여 주몽의 아버지가 된다."
+        },
+        {
+          "name": "금왕",
+          "role": "왕",
+          "description": "주몽을 시기하는 왕.",
+          "avatar_emoji": "👑",
+          "context": "주몽의 재주를 두려워한다."
+        },
+        {
+          "name": "탁자",
+          "role": "형",
+          "description": "주몽을 시기하는 형.",
+          "avatar_emoji": "🗡️",
+          "context": "아버지에게 주몽을 죽이라고 한다."
+        }
+      ]
+    },
+    {
+      "title": "박혁거세 신화",
+      "characters": [
+        {
+          "name": "박혁거세",
+          "role": "주인공",
+          "description": "알에서 태어나 신라의 시조가 된 영웅.",
+          "avatar_emoji": "🥚",
+          "context": "우물가에서 알이 떨어져 태어났다. 빛이 나는 아이로 자랐다."
+        }
+      ]
+    },
+    {
+      "title": "프로메테우스 신화",
+      "characters": [
+        {
+          "name": "프로메테우스",
+          "role": "신",
+          "description": "사람들에게 불을 준 신.",
+          "avatar_emoji": "🔥",
+          "context": "하늘에서 불을 훔쳐 사람들에게 전해 주었다."
+        },
+        {
+          "name": "사람들",
+          "role": "인류",
+          "description": "불이 없어 어둡고 추웠던 사람들.",
+          "avatar_emoji": "👥",
+          "context": "불 덕분에 음식을 익혀 먹고 따뜻하게 지낸다."
+        }
+      ]
+    },
+    {
+      "title": "어부지리",
+      "aliases": ["아부지"],
+      "summary": "황새와 조개가 싸울 때 어부가 이득을 보는 우화",
+      "characters": [
+        {
+          "name": "어부",
+          "role": "어부",
+          "description": "싸우는 황새와 조개를 함께 잡는다.",
+          "avatar_emoji": "🎣",
+          "context": "어부지리 속담의 주인공."
+        },
+        {
+          "name": "황새",
+          "role": "황새",
+          "description": "조개를 잡으려다 부리가 묶인다.",
+          "avatar_emoji": "🦩",
+          "context": "조개와 싸운다."
+        },
+        {
+          "name": "조개",
+          "role": "조개",
+          "description": "황새의 부리를 물고 놓아주지 않는다.",
+          "avatar_emoji": "🐚",
+          "context": "황새와 맞선다."
+        }
+      ]
+    }
+  ]
+}

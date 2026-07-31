@@ -1,0 +1,72 @@
+{
+  "stories": [
+    {
+      "title": "진짜 행운",
+      "summary": "휠체어를 탄 아이가 램프의 요정에게 소원을 빌며 행운을 깨닫는 이야기",
+      "characters": [
+        {
+          "name": "나",
+          "role": "주인공",
+          "description": "휠체어를 타는 아이.",
+          "avatar_emoji": "🧒",
+          "context": "램프의 요정 마담 안나에게 소원을 빈다. 친구, 엄마, 바닷가, 소금 만들기를 떠올린다. 이미 행운이 가까이 있었음을 안다."
+        },
+        {
+          "name": "마담 안나",
+          "role": "램프의 요정",
+          "description": "소원을 하나 들어주는 요정.",
+          "avatar_emoji": "🧞",
+          "context": "소원을 들어준다. 아이의 말을 듣고 미소 짓는다."
+        },
+        {
+          "name": "엄마",
+          "role": "어머니",
+          "description": "바닷가에서 함께 시간을 보낸다.",
+          "avatar_emoji": "👩",
+          "context": "바닷가에서 놀았다. 아이와 소금 만들기를 함께한다."
+        }
+      ]
+    },
+    {
+      "title": "빨간 벽",
+      "summary": "꼬마 생쥐가 빨간 벽 너머를 직접 찾아가는 동화",
+      "characters": [
+        {
+          "name": "꼬마 생쥐",
+          "role": "주인공",
+          "description": "벽 너머가 궁금한 생쥐.",
+          "avatar_emoji": "🐭",
+          "context": "다른 동물들 말을 듣고도 직접 넘어간다. 파랑새와 함께 아름다운 세상을 본다."
+        },
+        {
+          "name": "파랑새",
+          "role": "친구",
+          "description": "생쥐를 이끄는 새.",
+          "avatar_emoji": "🐦",
+          "context": "벽을 넘어 날아간다. 두려움보다 궁금함이 중요하다고 말한다."
+        },
+        {
+          "name": "양",
+          "role": "동물",
+          "description": "벽 너머가 위험하다고 한다.",
+          "avatar_emoji": "🐑",
+          "context": "위험하다고 말한다."
+        },
+        {
+          "name": "곰",
+          "role": "동물",
+          "description": "벽 너머를 궁금해하지 않는다.",
+          "avatar_emoji": "🐻",
+          "context": "궁금해하지 않는다."
+        },
+        {
+          "name": "사과",
+          "role": "과일",
+          "description": "벽 너머에 아무것도 없다고 한다.",
+          "avatar_emoji": "🍎",
+          "context": "아무것도 없다고 말한다."
+        }
+      ]
+    }
+  ]
+}

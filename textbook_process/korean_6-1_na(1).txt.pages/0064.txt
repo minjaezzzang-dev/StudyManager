@@ -1,0 +1,23 @@
+220
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<unknown>
+
+<|ref|>image<|/ref|><|det|>[[200, 650, 480, 820]]<|/det|>
+
+<|ref|>image<|/ref|><|det|>[[520, 650, 800, 820]]<|/det|>
+
+<|ref|>caption<|/ref|><|det|>[[300, 825, 450, 836]]<|/det|>
+
+<|ref|>caption<|/ref|><|det|>[[620, 825, 680, 836]]<|/det|>
