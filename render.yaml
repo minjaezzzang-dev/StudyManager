@@ -1,57 +1,94 @@
-# =============================================================
-# EasyKR — Render.com 배포 설정
-# =============================================================
-# 이 파일은 Render 대시보드에서 "Blueprint"로 배포할 때 사용됩니다.
-# 방법: Render Dashboard → New → Blueprint → GitHub repo 선택 → 자동 감지
-# =============================================================
+# EasyKR — Render Blueprint (pnpm monorepo)
+# Dashboard → New → Blueprint → connect GitHub repo
 
 services:
-  # ──────────────────────────────────────────────
-  # Backend API (Express + Supabase)
-  # ──────────────────────────────────────────────
   - type: web
     name: easykr-backend
     runtime: node
     plan: free
-    region: singapore   # 한국 사용자 기준 가장 가까운 리전
-    rootDir: apps/backend
-    buildCommand: npm install
-    startCommand: npm start
-    healthCheckPath: /ping
+    region: singapore
+    rootDir: .
+    buildCommand: >-
+      corepack enable &&
+      pnpm install --frozen-lockfile &&
+      pnpm --filter @dahamkee/backend build
+    startCommand: pnpm --filter @dahamkee/backend start
+    healthCheckPath: /health
     autoDeploy: true
+    # Free tier: no persistent disk — SQLite re-seeds on cold start.
     envVars:
       - key: NODE_VERSION
-        value: 20.0.0
+        value: "20"
+      - key: NODE_ENV
+        value: production
+      - key: APP_ENV
+        value: production
+      - key: DATA_DIR
+        value: /tmp/easykr-data
+      - key: BACKEND_HOST
+        value: 0.0.0.0
+      - key: BACKEND_URL
+        value: https://easykr-backend.onrender.com
+      - key: BACKEND_CORS_ORIGIN
+        value: https://easykr-frontend.onrender.com
+      - key: LOG_PRETTY
+        value: "false"
+      - key: ENABLE_SWAGGER_UI
+        value: "false"
+      - key: OPENAI_API_KEY
+        sync: false
       - key: SUPABASE_URL
-        sync: false       # Render 대시보드에서 수동 입력
+        sync: false
       - key: SUPABASE_ANON_KEY
         sync: false
-      - key: SUPABASE_SERVICE_KEY
+      - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
-      - key: SERVER_URL
-        value: https://easykr-backend.onrender.com
-      - key: PORT
-        value: 10000
+      - key: SUPABASE_JWT_SECRET
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NVIDIA_API_KEY
+        sync: false
 
-  # ──────────────────────────────────────────────
-  # Frontend (Next.js)
-  # ──────────────────────────────────────────────
   - type: web
     name: easykr-frontend
     runtime: node
     plan: free
     region: singapore
-    rootDir: apps/web
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    rootDir: .
+    buildCommand: >-
+      corepack enable &&
+      pnpm install --frozen-lockfile &&
+      pnpm --filter @dahamkee/web build
+    startCommand: pnpm --filter @dahamkee/web start
     healthCheckPath: /
     autoDeploy: true
     envVars:
       - key: NODE_VERSION
-        value: 20.0.0
+        value: "20"
+      - key: NODE_ENV
+        value: production
       - key: NEXT_PUBLIC_API_URL
         value: https://easykr-backend.onrender.com
       - key: NEXT_PUBLIC_SUPABASE_URL
         sync: false
       - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
         sync: false
+
+  - type: web
+    name: easykr-mobile-web
+    runtime: static
+    rootDir: .
+    buildCommand: >-
+      corepack enable &&
+      pnpm install --frozen-lockfile &&
+      pnpm --filter @dahamkee/mobile build:web
+    staticPublishPath: apps/mobile/dist
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: EXPO_PUBLIC_API_URL
+        value: https://easykr-backend.onrender.com
+      - key: EXPO_PUBLIC_WEB_APP_URL
+        value: https://easykr-frontend.onrender.com
