@@ -18,20 +18,28 @@ setLogger(createLogger(env));
 async function startServer(): Promise<void> {
   try {
     getDb();
-    ensureTextbooksIngested();
-    ensureUnitCharactersIngested();
-    seedStoryPersonasFromUnitFiles();
     const app = createApp(env);
     
     const port = Number(process.env.PORT) || env.BACKEND_PORT;
     const host = env.BACKEND_HOST;
     
     const server = app.listen(port, host, () => {
-      logger.info(`🚀 EasyKR Backend started`);
+      logger.info(`EasyKR Backend started`);
       logger.info(`   Environment: ${env.APP_ENV}`);
       logger.info(`   Listening on: http://${host}:${port}`);
       logger.info(`   API Docs: http://${host}:${port}${env.SWAGGER_PATH}`);
       logger.info(`   CORS Origin: ${env.BACKEND_CORS_ORIGIN}`);
+
+      // Defer heavy RAG ingest so the process binds PORT before OOM on small instances.
+      setImmediate(() => {
+        try {
+          ensureTextbooksIngested();
+          ensureUnitCharactersIngested();
+          seedStoryPersonasFromUnitFiles();
+        } catch (err) {
+          logger.error({ err }, 'Startup RAG ingest failed (non-fatal)');
+        }
+      });
     });
 
     attachInterpretLiveProxy(server);
