@@ -1,23 +1,40 @@
 {
-  "name": "easykr",
-  "version": "1.0.0",
+  "name": "together-class",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "./scripts/ensure-env.sh && turbo run dev --filter=@dahamkee/backend --filter=@dahamkee/web",
+    "dev:all": "turbo run dev",
+    "mail": "./scripts/mailpit.sh start",
+    "mail:stop": "./scripts/mailpit.sh stop",
+    "mail:status": "./scripts/mailpit.sh status",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "check-types": "turbo run check-types",
+    "test": "vitest run --workspace vitest.workspace.ts",
+    "test:watch": "vitest --workspace vitest.workspace.ts",
+    "test:e2e": "pnpm --filter @dahamkee/web test:e2e",
+    "test:e2e:matrix": "pnpm --filter @dahamkee/web test:e2e:matrix",
+    "platforms": "./scripts/platforms.sh",
+    "android": "pnpm --filter @dahamkee/mobile android",
+    "ios": "pnpm --filter @dahamkee/mobile ios",
+    "mobile": "pnpm --filter @dahamkee/mobile dev",
+    "mobile:web": "pnpm --filter @dahamkee/mobile dev:web",
+    "desktop": "pnpm --filter @dahamkee/desktop dev",
+    "verify": "./scripts/verify.sh",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "db:push": "turbo run db:push",
     "db:studio": "turbo run db:studio"
   },
   "devDependencies": {
     "turbo": "^2.0.0",
     "prettier": "^3.3.0",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "eslint": "^8.57.0",
+    "vitest": "^2.0.5"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "20.x"
   }
 }

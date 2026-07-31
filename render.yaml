@@ -9,7 +9,6 @@ services:
     region: singapore
     rootDir: .
     buildCommand: >-
-      corepack enable &&
       pnpm install --frozen-lockfile &&
       pnpm --filter @dahamkee/backend build
     startCommand: pnpm --filter @dahamkee/backend start
@@ -57,7 +56,6 @@ services:
     region: singapore
     rootDir: .
     buildCommand: >-
-      corepack enable &&
       pnpm install --frozen-lockfile &&
       pnpm --filter @dahamkee/web build
     startCommand: pnpm --filter @dahamkee/web start
@@ -80,7 +78,6 @@ services:
     runtime: static
     rootDir: .
     buildCommand: >-
-      corepack enable &&
       pnpm install --frozen-lockfile &&
       pnpm --filter @dahamkee/mobile build:web
     staticPublishPath: apps/mobile/dist
